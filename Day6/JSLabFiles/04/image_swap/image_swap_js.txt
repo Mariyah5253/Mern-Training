@@ -1,0 +1,18 @@
+var $ = function (id) { 
+	return document.getElementById(id); 
+}
+window.onload = function () {
+    var listNode = $("image_list");
+    var captionNode = $("caption");
+    var imageNode = $("image");
+    
+    var imageLinks = listNode.getElementsByTagName("a");
+    // TODO task    
+    // Process image links
+
+    // Attach event handler
+
+    // Preload image
+
+    $("first_link").focus();
+}
