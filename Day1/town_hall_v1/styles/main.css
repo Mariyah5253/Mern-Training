@@ -18,5 +18,7 @@ header img {
 section {
 	clear: left;
 }
-
+li{
+	margin-left:0em;
+}
 /* the styles for the footer */

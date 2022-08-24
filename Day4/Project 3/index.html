@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration
+        Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Registration Form.
+    </h1>
+    <p>Please fill out this form with the required information.</p>
+    <form action="https://registerdemo.freecodecamp.org">
+        <fieldset>
+            <label>Enter Your First Name:&nbsp;</label>
+            <input type="text" name="fname">
+            <label>Enter Your Last Name:&nbsp;</label>
+            <input type="text" name="lname">
+            <label>Enter Your Email:&nbsp;</label>
+            <input type="email" name="email">
+            <label>Create a New Password:&nbsp;</label>
+            <input type="password" minlength="8" pattern="[a-z0-5]{8,}" name="password">
+            <input type="submit" value="Submit">
+        </fieldset>
+        <fieldset class="inline">
+           <table></tr><td>
+           <label>Personal Account</label></td>
+           <td><input type="radio" name="account-type"></td>
+           <td><label>Bussiness Account</label></td>
+           <td><input type="radio"  name="account-type"></td></tr></table>
+           <div><label>I Accept The <a href="https://www.freecodecamp.org/news/terms-of-service/">Terms and
+                    Conditions</a></label>
+           <input type="checkbox"  required name="terms_condition"></table>
+        </div></fieldset>
+        <fieldset>
+            <label>Upload a profile picture: </label>
+            <input type="file" name="profile_pic">
+            <label> Input your age (years): </label>
+            <input type="number" min="13" max="120" name="age">
+        <select>
+            <option value="">(select one)</option>
+            <option value="1">freeCodeCamp News</option>
+            <option value="2">freeCodeCamp YouTube Channel</option>
+            <option value="3">reeCodeCamp Forum</option>
+            <option value="4">Other</option>
+            </select>
+            <label>Bio:</label>
+            <textarea placeholder=" I like coding on the beach...." rows="3" cols="30"></textarea>
+        </fieldset>
+    </form>
+   
+</body>
+
+</html>

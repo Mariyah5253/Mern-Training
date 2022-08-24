@@ -1,0 +1,152 @@
+/* So the HTML5 structural tags work in older browsers */
+article, aside, figure, footer, header, nav, section {
+    display: block;
+}
+/* the styles for the elements */
+html{
+	background-color: white;
+}
+
+body{
+	width:800px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: auto;
+	margin-right:auto;
+	
+	border: 3px solid #800000;
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 87.5%;
+	background-color: #fffded;
+}
+
+/* the styles for the header */
+header img {
+	float: left;
+}
+aside{
+	width:215px;
+    float:right;
+	padding-left:20px;
+}
+
+/* the styles for the section */
+section {
+	width:525px;
+	padding-right: 20px;
+	padding-left: 20px;
+	float:right;
+	clear: left;
+}
+
+/* the styles for the footer */
+header{
+	margin-top:-20px;
+	background-image: linear-gradient(30deg,#800000, #fffded, white, #fffded,#800000 );
+	
+	border-bottom: 3px solid #800000;
+	color:#800000;
+	
+}
+header h2{
+	padding-bottom:.25em;
+	font-style: italic;
+
+}
+
+header h1{
+	padding-top:0.5em;
+	padding-bottom:0.25em;
+}
+header img{
+	padding-left:30px ;
+	padding-right: 30px;
+	padding-bottom:1em;
+}
+p{
+	padding-bottom:0.5 em;
+}
+blockquote{
+	font-style: italic;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+/*#speakers{
+	font-size:100%;
+	color:black;
+	width:45%;
+	padding:2px;
+	padding-top:1px;
+	font-size: 22px;
+	border: 3px double #800000;
+	box-shadow: 10px 10px 5px #800000;
+	border-radius: 6px;
+	font-weight: bold;
+	text-align: center;
+	background-color: white;
+
+
+}
+*/
+aside h1{
+color:#800000;
+font-size:120%;
+}
+aside h2{
+	font-size:120%;
+}
+a:hover,:focus{
+	font-style: italic;
+}
+footer p{
+	text-align:center;
+}
+footer{
+	clear:both;
+	border-top:3px solid #800000 ;
+	padding:1em 0 1em 0;
+}
+
+
+.shadow{
+	text-shadow: 2px 2px 2px #800000;
+}
+section ul {
+	padding: 0 0 1.5em 1.25em;
+}
+section li {
+	padding-bottom: .35em;
+}
+aside img{
+	padding-bottom:1em;
+}
+section h1 {
+	color: #800000;
+	font-size: 150%;
+	padding: .5em 0 .25em;
+}
+section h2 {
+	font-size: 120%;
+	padding-bottom: .25em;
+}
+aside h1 {
+	color: #800000;
+	font-size: 150%;
+	padding: .5em 0 .25em;
+}
+aside h2 {
+	font-size: 120%;
+	padding-bottom: .25em;
+}
+article{
+	/*border-top:2px solid #800000;
+	*/border-bottom:2px solid #800000;
+}
+article img{
+	float:right;
+	margin:1em;
+	border:1px solid black;
+}
+article h1{
+	color:#800000;
+}
