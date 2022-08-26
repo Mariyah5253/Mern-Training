@@ -1,0 +1,131 @@
+mysql> DESC titleauthor;
+ERROR 1046 (3D000): No database selected
+mysql> use pubs;
+Database changed
+mysql> use pubs;
+Database changed
+mysql> DESC titleauthor;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| au_id      | varchar(11) | NO   | PRI |         |       |
+| title_id   | varchar(10) | NO   | PRI |         |       |
+| au_ord     | tinyint(4)  | YES  |     | NULL    |       |
+| royaltyper | int(11)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.03 sec)
+
+mysql> Select * from titleauthor
+    -> ;
++-------------+----------+--------+------------+
+| au_id       | title_id | au_ord | royaltyper |
++-------------+----------+--------+------------+
+| 172-32-1176 | PS3333   |      1 |        100 |
+| 213-46-8915 | BU1032   |      2 |         40 |
+| 213-46-8915 | BU2075   |      1 |        100 |
+| 409-56-7008 | BU1032   |      1 |         60 |
+| 486-29-1786 | PC9999   |      1 |        100 |
+| 486-29-1786 | PS7777   |      1 |        100 |
+| 712-45-1867 | MC2222   |      1 |        100 |
+| 998-72-3567 | PS2091   |      1 |         50 |
++-------------+----------+--------+------------+
+8 rows in set (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('238-95-7766','PC1035',1,100);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('899-46-2035','PS2091',2,50);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('998-72-3567','PS2106',1,100);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('722-51-5454','MC3021',1,75);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('899-46-2035','MC3021',2,25);;
+Query OK, 1 row affected (0.00 sec)
+
+ERROR: 
+No query specified
+
+mysql> INSERT INTO titleauthor VALUES ('807-91-6654','TC3218',1,100);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('274-80-9391','BU7832',1,100);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('427-17-2319','PC8888',1,50);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('846-92-7186','PC8888',2,50);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('756-30-7391','PS1372',1,72);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> ALTER TABLE titleauthor SET royaltyper='75' WHERE royaltyper=72;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SET royaltyper='75' WHERE royaltyper=72' at line 1
+mysql> UPDATE TABLE titleauthor SET royaltyper=75 WHERE royaltyper=75;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TABLE titleauthor SET royaltyper=75 WHERE royaltyper=75' at line 1
+mysql> UPDATE titleauthor SET royaltyper=75 WHERE royaltyper=75;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> INSERT INTO titleauthor VALUES ('724-80-9391','Ps1372',2,25);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('724-80-9391','BU1111',1,60);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('267-41-2394','BU1111',2,40);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('672-71-3249','TC7777',1,40);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('267-41-2394','TC7777',2,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES ('472-27-2349','TC7777',3,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO titleauthor VALUES (648-92-1872'','TC4203',1,100)
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''','TC4203',1,100)' at line 1
+mysql> INSERT INTO titleauthor VALUES ('648-92-1872','TC4203',1,100);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Select * from titleauthor;
++-------------+----------+--------+------------+
+| au_id       | title_id | au_ord | royaltyper |
++-------------+----------+--------+------------+
+| 172-32-1176 | PS3333   |      1 |        100 |
+| 213-46-8915 | BU1032   |      2 |         40 |
+| 213-46-8915 | BU2075   |      1 |        100 |
+| 238-95-7766 | PC1035   |      1 |        100 |
+| 267-41-2394 | BU1111   |      2 |         40 |
+| 267-41-2394 | TC7777   |      2 |         30 |
+| 274-80-9391 | BU7832   |      1 |        100 |
+| 409-56-7008 | BU1032   |      1 |         60 |
+| 427-17-2319 | PC8888   |      1 |         50 |
+| 472-27-2349 | TC7777   |      3 |         30 |
+| 486-29-1786 | PC9999   |      1 |        100 |
+| 486-29-1786 | PS7777   |      1 |        100 |
+| 648-92-1872 | TC4203   |      1 |        100 |
+| 672-71-3249 | TC7777   |      1 |         40 |
+| 712-45-1867 | MC2222   |      1 |        100 |
+| 722-51-5454 | MC3021   |      1 |         75 |
+| 724-80-9391 | BU1111   |      1 |         60 |
+| 724-80-9391 | Ps1372   |      2 |         25 |
+| 756-30-7391 | PS1372   |      1 |         72 |
+| 807-91-6654 | TC3218   |      1 |        100 |
+| 846-92-7186 | PC8888   |      2 |         50 |
+| 899-46-2035 | MC3021   |      2 |         25 |
+| 899-46-2035 | PS2091   |      2 |         50 |
+| 998-72-3567 | PS2091   |      1 |         50 |
+| 998-72-3567 | PS2106   |      1 |        100 |
++-------------+----------+--------+------------+
+25 rows in set (0.00 sec)
+
+mysql> \t;
