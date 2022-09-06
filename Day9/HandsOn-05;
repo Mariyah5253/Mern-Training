@@ -1,0 +1,368 @@
+
+
+mysql> SELECT P.PUB_NAME,T.TITLE FROM PUBLISHERS AS P ,TITLES  AS T  
+    -> WHERE P.PUB_ID=T.PUB_ID;
++-----------------------+-----------------------------------------------------------------+
+| PUB_NAME              | TITLE                                                           |
++-----------------------+-----------------------------------------------------------------+
+| New Moon Books        | You Can Combat Computer Stress!                                 |
+| New Moon Books        | Is Anger the Enemy?                                             |
+| New Moon Books        | Life Without Fear                                               |
+| New Moon Books        | Prolonged Data Deprivation: Four Case Studies                   |
+| New Moon Books        | Emotional Security: A New Algorithm                             |
+| Binnet & Hardley      | Silicon Valley Gastronomic Treats                               |
+| Binnet & Hardley      | The Gourmet Microwave                                           |
+| Binnet & Hardley      | The Psychology of Computer Cooking                              |
+| Binnet & Hardley      | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Binnet & Hardley      | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Binnet & Hardley      | Fifty Years in Buckingham Palace Kitchens                       |
+| Binnet & Hardley      | Sushi, Anyone?                                                  |
+|  Algodata Infosystems | The Busy Executive's Database Guide                             |
+|  Algodata Infosystems | Cooking with Computers: Surreptitious Balance Sheets            |
+|  Algodata Infosystems | Straight Talk About Computers                                   |
+|  Algodata Infosystems | But Is It User Friendly?                                        |
+|  Algodata Infosystems | Secrets of Silicon Valley                                       |
+|  Algodata Infosystems | Net Etiquette                                                   |
++-----------------------+-----------------------------------------------------------------+
+18 rows in set (0.00 sec)
+
+
+mysql> SELECT P.PUB_NAME,SUM(T.YTD_SALES) FROM PUBLISHERS AS P ,TITLES  AS T WHERE T.PUB_ID=P.PUB_ID GROUP BY P.PUB_NAME ;
++-----------------------+------------------+
+| PUB_NAME              | SUM(T.YTD_SALES) |
++-----------------------+------------------+
+|  Algodata Infosystems |            24941 |
+| Binnet & Hardley      |            44219 |
+| New Moon Books        |            28286 |
++-----------------------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> DESC PUBLISHERS;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| pub_id   | char(4)     | NO   | PRI |         |       |
+| pub_name | varchar(40) | YES  |     | NULL    |       |
+| city     | varchar(20) | YES  |     | NULL    |       |
+| state    | char(2)     | YES  |     | NULL    |       |
+| country  | varchar(30) | YES  |     | USA     |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+mysql> DESC TITLES;
++-----------+---------------+------+-----+-----------+-------+
+| Field     | Type          | Null | Key | Default   | Extra |
++-----------+---------------+------+-----+-----------+-------+
+| title_id  | varchar(10)   | NO   | PRI |           |       |
+| title     | varchar(80)   | NO   |     | NULL      |       |
+| type      | char(12)      | NO   |     | UNDECIDED |       |
+| pub_id    | char(4)       | YES  | MUL | NULL      |       |
+| price     | decimal(10,4) | YES  |     | NULL      |       |
+| advance   | decimal(10,4) | YES  |     | NULL      |       |
+| royalty   | int(11)       | YES  |     | NULL      |       |
+| ytd_sales | int(11)       | YES  |     | NULL      |       |
+| notes     | text          | YES  |     | NULL      |       |
+| pubdate   | date          | YES  |     | NULL      |       |
++-----------+---------------+------+-----+-----------+-------+
+10 rows in set (0.02 sec)
+
+mysql> SHOW TABLES;
++----------------+
+| Tables_in_pubs |
++----------------+
+| authors        |
+| demo           |
+| publishers     |
+| titleauthor    |
+| titles         |
++----------------+
+5 rows in set (0.00 sec)
+
+mysql> DESC AUTHORS;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| au_id    | varchar(11) | NO   | PRI |         |       |
+| au_lname | varchar(40) | NO   |     | NULL    |       |
+| au_fname | varchar(20) | NO   |     | NULL    |       |
+| phone    | char(12)    | NO   |     | UNKOWN  |       |
+| address  | varchar(40) | YES  |     | NULL    |       |
+| city     | varchar(20) | YES  |     | NULL    |       |
+| state    | char(2)     | YES  |     | NULL    |       |
+| zip      | char(5)     | YES  |     | NULL    |       |
+| contract | tinyint(4)  | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+9 rows in set (0.02 sec)
+
+
+mysql> SELECT P.PUB_NAME,A.City FROM PUBLISHERS AS P ,Authors  AS A WHERE A.CITY=P.CITY; 
++-----------------------+----------+
+| PUB_NAME              | City     |
++-----------------------+----------+
+|  Algodata Infosystems | Berkeley |
+|  Algodata Infosystems | Berkeley |
++-----------------------+----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT P.PUB_NAME,A.City FROM PUBLISHERS AS P ,Authors  AS A WHERE A.CITY=P.CITY GROUP BY P.CITY; 
++-----------------------+----------+
+| PUB_NAME              | City     |
++-----------------------+----------+
+|  Algodata Infosystems | Berkeley |
++-----------------------+----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT P.PUB_NAME,A.City FROM PUBLISHERS AS P ,Authors  AS A WHERE A.CITY=P.CITY GROUP BY P.CITY; 
++-----------------------+----------+
+| PUB_NAME              | City     |
++-----------------------+----------+
+|  Algodata Infosystems | Berkeley |
++-----------------------+----------+
+1 row in set (0.00 sec)
+
+
+mysql> DESC AUTHORS;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| au_id    | varchar(11) | NO   | PRI |         |       |
+| au_lname | varchar(40) | NO   |     | NULL    |       |
+| au_fname | varchar(20) | NO   |     | NULL    |       |
+| phone    | char(12)    | NO   |     | UNKOWN  |       |
+| address  | varchar(40) | YES  |     | NULL    |       |
+| city     | varchar(20) | YES  |     | NULL    |       |
+| state    | char(2)     | YES  |     | NULL    |       |
+| zip      | char(5)     | YES  |     | NULL    |       |
+| contract | tinyint(4)  | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+9 rows in set (0.02 sec)
+
+
+mysql> SELECT A.AU_FNAME,P.PUB_NAME,P.CITY FROM PUBLISHERS P, AUTHORS AS A WHERE P.CITY=A.CITY;
++----------+-----------------------+----------+
+| AU_FNAME | PUB_NAME              | CITY     |
++----------+-----------------------+----------+
+| Cheryl   |  Algodata Infosystems | Berkeley |
+| Abraham  |  Algodata Infosystems | Berkeley |
++----------+-----------------------+----------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+mysql> SELECT T.TITLE,A.AU_FNAME FROM TITLES T,AUTHORS A,TITLEAUTHOR WHERE A.AU_ID= TITLEAUTHOR.AU_ID AND T.TITLE_ID=TITLEAUTHOR.TITLE_ID;
++-----------------------------------------------------------------+----------+
+| TITLE                                                           | AU_FNAME |
++-----------------------------------------------------------------+----------+
+| The Busy Executive's Database Guide                             | Marjorie |
+| The Busy Executive's Database Guide                             | Abraham  |
+| Cooking with Computers: Surreptitious Balance Sheets            | Michael  |
+| Cooking with Computers: Surreptitious Balance Sheets            | Stearns  |
+| You Can Combat Computer Stress!                                 | Marjorie |
+| Straight Talk About Computers                                   | Dean     |
+| Silicon Valley Gastronomic Treats                               | Innes    |
+| The Gourmet Microwave                                           | Michel   |
+| The Gourmet Microwave                                           | Anne     |
+| But Is It User Friendly?                                        | Cheryl   |
+| Secrets of Silicon Valley                                       | Ann      |
+| Secrets of Silicon Valley                                       | Sheryl   |
+| Net Etiquette                                                   | Charlene |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Stearns  |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Livia    |
+| Is Anger the Enemy?                                             | Anne     |
+| Is Anger the Enemy?                                             | Albert   |
+| Life Without Fear                                               | Albert   |
+| Prolonged Data Deprivation: Four Case Studies                   | Johnson  |
+| Emotional Security: A New Algorithm                             | Charlene |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Sylvia   |
+| Fifty Years in Buckingham Palace Kitchens                       | Reginald |
+| Sushi, Anyone?                                                  | Michael  |
+| Sushi, Anyone?                                                  | Burt     |
+| Sushi, Anyone?                                                  | Akiko    |
++-----------------------------------------------------------------+----------+
+25 rows in set (0.00 sec)
+
+mysql> CREATE TABLE EMPLOYEES( EMP_ID INT,ENAME VARCHAR(10),DEP_ID INT,JOB VARCHAR(10),MGR_ID TINYINT,BSAL INT);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO EMPLOYEES VALUES(101,'SAMEER',10,'PRESIDENT',NULL,50000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEES VALUES(102,'SRINIVAS',10,'VP',101,40000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEES VALUES(103,'NANDA',20,'VP',101,40000);0);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEES VALUES(104,'RAM',30,'DGM',102,35000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEES VALUES(105,'VIVEK',20,'PM',103,30000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEES VALUES(106,'VENKAT',20,'TECH LEAD',105,25000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> CREATE TABLE DEPARTMENTS(DEPT_ID INT,DNAME VARCHAR(10),LOCATION VARCHAR(20));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO DEPARTMENTS VALUES(10,'CROP','DALLAS');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO DEPARTMENTS VALUES(20,'PW','BANGLORE');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO DEPARTMENTS VALUES(30,'SP','PUNE');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO DEPARTMENTS VALUES(40,'MS','HYDERABAD');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> CREATE TABLE SALGRADES(GRADE CHAR(1),MIN_SAL INT,MAX_SAL INT);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO SALGRADES VALUES('A',40001,50000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SALGRADES VALUES('B',30001,4000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SALGRADES VALUES('C',20001,30000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> UPDATE SALGRADES SET MAX_SAL=40000 WHERE GRADE='B';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT E.DEPT_ID,E.ENAME,D.DNAME FROM EMPLOYEES E,DEPARTMENTS D WHERE E.DEPT_ID=D.DEPT_ID;
+ERROR 1054 (42S22): Unknown column 'E.DEPT_ID' in 'field list'
+mysql> SELECT * FROM EMPLOYEES;
++--------+----------+--------+-----------+--------+-------+
+| EMP_ID | ENAME    | DEP_ID | JOB       | MGR_ID | BSAL  |
++--------+----------+--------+-----------+--------+-------+
+|    101 | SAMEER   |     10 | PRESIDENT |   NULL | 50000 |
+|    102 | SRINIVAS |     10 | VP        |    101 | 40000 |
+|    103 | NANDA    |     20 | VP        |    101 | 40000 |
+|    104 | RAM      |     30 | DGM       |    102 | 35000 |
+|    105 | VIVEK    |     20 | PM        |    103 | 30000 |
+|    106 | VENKAT   |     20 | TECH LEAD |    105 | 25000 |
++--------+----------+--------+-----------+--------+-------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT E.DEP_ID,E.ENAME,D.DNAME FROM EMPLOYEES E,DEPARTMENTS D WHERE E.DEP_ID=D.DEPT_ID;
++--------+----------+-------+
+| DEP_ID | ENAME    | DNAME |
++--------+----------+-------+
+|     10 | SAMEER   | CROP  |
+|     10 | SRINIVAS | CROP  |
+|     20 | NANDA    | PW    |
+|     30 | RAM      | SP    |
+|     20 | VIVEK    | PW    |
+|     20 | VENKAT   | PW    |
++--------+----------+-------+
+6 rows in set (0.00 sec)
+
+
+mysql> SELECT DISTINCT E.JOB,D.LOCATION FROM EMPLOYEES E,DEPARTMENTS D WHERE E.DEP_ID=D.DEPT_ID AND E.DEP_ID=30;
++------+----------+
+| JOB  | LOCATION |
++------+----------+
+| DGM  | PUNE     |
++------+----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT E.ENAME,D.DNAME FROM EMPLOYEES E,DEPARTMENTS D WHERE E.DEP_ID=D.DEPT_ID
+    -> AND E.ENAME LIKE '%A%';
++----------+-------+
+| ENAME    | DNAME |
++----------+-------+
+| SAMEER   | CROP  |
+| SRINIVAS | CROP  |
+| NANDA    | PW    |
+| RAM      | SP    |
+| VENKAT   | PW    |
++----------+-------+
+5 rows in set (0.01 sec)
+
+
+mysql> SELECT E.ENAME,E.JOB,D.DNAME,D.DEPT_ID FROM EMPLOYEES E,DEPARTMENTS D WHERE E.DEP_ID=D.DEPT_ID
+    -> AND D.LOCATION='DALLAS';
++----------+-----------+-------+---------+
+| ENAME    | JOB       | DNAME | DEPT_ID |
++----------+-----------+-------+---------+
+| SAMEER   | PRESIDENT | CROP  |      10 |
+| SRINIVAS | VP        | CROP  |      10 |
++----------+-----------+-------+---------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT E1.ENAME 'EMPLOYEE',E1.EMP_ID 'EMP NO',E2.ENAME 'MANAGER',E1.MGR_ID 'MANAGER NO.' FROM EMPLOYEES E1,EMPLOYEES E2 WHERE E1.MGR_ID=E2.EMP_ID;
++----------+--------+----------+-------------+
+| EMPLOYEE | EMP NO | MANAGER  | MANAGER NO. |
++----------+--------+----------+-------------+
+| SRINIVAS |    102 | SAMEER   |         101 |
+| NANDA    |    103 | SAMEER   |         101 |
+| RAM      |    104 | SRINIVAS |         102 |
+| VIVEK    |    105 | NANDA    |         103 |
+| VENKAT   |    106 | VIVEK    |         105 |
++----------+--------+----------+-------------+
+5 rows in set (0.00 sec)
+
+
+mysql> \T C:\Users\mariya.hussain\Desktop\Mern_Training\Day9\HandsOn-05;
+mysql> SELECT ENAME FROM EMPLOYEES WHERE MGR_ID IS NULL;
++--------+
+| ENAME  |
++--------+
+| SAMEER |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT ENAME FROM EMPLOYEES WHERE MGR_ID IS NULL;
++--------+
+| ENAME  |
++--------+
+| SAMEER |
++--------+
+1 row in set (0.00 sec)
+
+mysql> DESC SALGRADES;
++---------+---------+------+-----+---------+-------+
+| Field   | Type    | Null | Key | Default | Extra |
++---------+---------+------+-----+---------+-------+
+| GRADE   | char(1) | YES  |     | NULL    |       |
+| MIN_SAL | int(11) | YES  |     | NULL    |       |
+| MAX_SAL | int(11) | YES  |     | NULL    |       |
++---------+---------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+
+
+
+
+
+mysql> SELECT S.GRADE,E.ENAME,E.BSAL FROM SALGRADES S,EMPLOYEES E WHERE E.BSAL>=S.MIN_SAL AND E.BSAL<=MAX_SAL; 
++-------+----------+-------+
+| GRADE | ENAME    | BSAL  |
++-------+----------+-------+
+| A     | SAMEER   | 50000 |
+| B     | SRINIVAS | 40000 |
+| B     | NANDA    | 40000 |
+| B     | RAM      | 35000 |
+| C     | VIVEK    | 30000 |
+| C     | VENKAT   | 25000 |
++-------+----------+-------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT S.GRADE,E.ENAME,E.BSAL FROM SALGRADES S,EMPLOYEES E WHERE E.BSAL>S.MIN_SAL AND S.BSAL<MAX_SAL;  ;  
+ERROR 1054 (42S22): Unknown column 'S.BSAL' in 'where clause'
+ERROR: 
+No query specified
+
+mysql> SELECT S.GRADE,E.ENAME,E.BSAL FROM SALGRADES S,EMPLOYEES E WHERE E.BSAL>S.MIN_SAL AND S.BSAL<MAX_SAL;  ;  
+ERROR 1054 (42S22): Unknown column 'S.BSAL' in 'where clause'
+ERROR: 
+No query specified
+
+mysql> \T C:\Users\mariya.hussain\Desktop\Mern_Training\DAY11\HandsOn-06

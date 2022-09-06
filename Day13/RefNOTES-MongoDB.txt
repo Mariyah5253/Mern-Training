@@ -1,0 +1,119 @@
+		SQL		NoSQL
+	Structured 		Unstructured
+	   Table = Rows x Cols	   Collection = Free-format	
+				
+	Relational		Document-oriented
+
+				i.e. A collection can one or more 
+				documents
+				Each and every document can vary/different
+
+	Static Schema		Dynamic Schema
+==========================================================================
+Starting MongoDB Server
+~~~~~~~~~~~~~~~~~~~~~~~
+We need to know the location where 'MongoDB' server executable is installed. It will have the name 'mongod.exe'
+
+Go to the location where we have 'mongod.exe' and execute the command
+as follows:
+
+	mongod   --dbpath  <Path_to_your_data_dir>
+
+Example:
+	mongod	 --dbpath  C:\temp\data
+
+Once that is done the 'MongoDB' server will be up and running.
+
+Starting MongoDB Shell
+~~~~~~~~~~~~~~~~~~~~~~
+Open another command windows.
+( Assuming that you have download and copied the 'mongosh.exe' file
+  in C:\temp directory. )
+
+Navigate to 'C:\temp' directory
+
+Type 'mongosh.exe'  to start your MongoDB Shell
+
+You should now be able to see the MongoDB prompt '>'
+
+==========================================================================
+Comparision Operators
+~~~~~~~~~~~~~~~~~~~~~
+	SQL			NoSQL
+	=			$eq
+	<>			$ne
+	>			$gt
+	>=			$gte
+	<			$lt
+	<=			$lte
+
+	IN			$in
+	NOT IN			$nin
+
+	RegExp			/<pattern>/
+
+				Recall - The Metacharacters, Quantifiers
+
+=========================================================================
+Recap - SQL - 	How did we perform modifcations?
+		i.e. modification of data in table
+
+	We use DML statements.		MongoDB
+	INSERT			->	insert(), insertOne(), insertMany
+	UPDATE			->	update()
+	  SET col=value/expr
+	DELETE			->	remove()
+
+					^
+			    We need to tell which db and which collection.
+
+However, with DB we have navigated to the required DB with the 'use'
+Thus specification of the collection is required.
+
+Syntax:
+	db.collection_name.remove()
+		The 1st argument to the method is the criteria
+		based on which the removal of the document(s) is
+		done
+
+	db.collection_name.update()
+		The 1st argument to the method is the criteria
+		based on which the updation of the document(s) is
+		done
+
+		The 2nd argument specify the $set....
+
+========================================================================
+Data Modeling Decision
+======================
+
+MySQL : Table 'employees' => empID,empName,gender,email,salary,cityID
+	Table 'city'	  => cityID, cityName
+
+We established the relation between two/more tables using Referential
+Integrity constraint (AKA - FK Constraint)
+
+MongoDB [1] Referencing
+	[2] Embedding	
+
+
+Question ASKED
+Q1. How will the data be used?
+Q2. What is the size of the data?
+Q3. Will the data change often?
+
+=========================================================================
+Aggregation
+===========
+Basically means grouping.
+
+	MySQL				MongoDB
+GROUP BY clause				The aggregate() method and
+					  Stage operators: $group, $match
+
+Group Function				Accumulator Operators
+	Count, Max, Min			$sum, $max, $min, $avg
+	Sum, Avg		
+	
+
+

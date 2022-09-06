@@ -1,0 +1,159 @@
+
+
+mysql> SELECT PUB_ID,PUB_NAME FROM PUBLISHERS WHERE PUB_ID IN (SELECT PUB_ID FROM TITLES  WHERE  TYPE='BUSINESS');
++--------+-----------------------+
+| PUB_ID | PUB_NAME              |
++--------+-----------------------+
+| 0736   | New Moon Books        |
+| 1389   |  Algodata Infosystems |
++--------+-----------------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT PUB_ID,PUB_NAME FROM PUBLISHERS WHERE PUB_ID NOT IN (SELECT PUB_ID FROM TITLES  WHERE  TYPE='MOD_COOK');
++--------+------------------------+
+| PUB_ID | PUB_NAME               |
++--------+------------------------+
+| 0736   | New Moon Books         |
+| 1389   |  Algodata Infosystems  |
+| 1622   | Five Lakes Publishings |
+| 1756   | Ramona Publishers      |
+| 9901   | GGG&G                  |
+| 9952   | Scootney Books         |
+| 9999   | Lucerne Publishing     |
++--------+------------------------+
+7 rows in set (0.00 sec)
+
+mysql>
+
+mysql> SELECT AVG(YTD_SALES),TYPE FROM TITLES GROUP BY TYPE HAVING TYPE IN (SELECT TYPE FROM TITLES WHERE TITLE IN ("THE BUSY EXECUTIVE'S DATABASE GUIDE","IS ANGER THE ENEMY?")) ; 
++----------------+------------+
+| AVG(YTD_SALES) | TYPE       |
++----------------+------------+
+|      7697.0000 | business   |
+|      1987.8000 | psychology |
++----------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> \T C:\Users\mariya.hussain\Desktop\Mern_Training\DAY11\HandsOn-06
+mysql> SELECT AVG(YTD_SALES),TYPE FROM TITLES GROUP BY TYPE HAVING TYPE IN (SELECT TYPE FROM TITLES WHERE TITLE IN ("THE BUSY EXECUTIVE'S DATABASE GUIDE","IS ANGER THE ENEMY?")) ; 
++----------------+------------+
+| AVG(YTD_SALES) | TYPE       |
++----------------+------------+
+|      7697.0000 | business   |
+|      1987.8000 | psychology |
++----------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT PUB_NAME,PUB_ID FROM PUBLISHERS WHERE CITY='PARIS';
++--------------------+--------+
+| PUB_NAME           | PUB_ID |
++--------------------+--------+
+| Lucerne Publishing | 9999   |
++--------------------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT PUB_NAME,PUB_ID,CITY FROM PUBLISHERS WHERE CITY='PARIS';
++--------------------+--------+-------+
+| PUB_NAME           | PUB_ID | CITY  |
++--------------------+--------+-------+
+| Lucerne Publishing | 9999   | paris |
++--------------------+--------+-------+
+1 row in set (0.00 sec)
+
+
+
+
+
+mysql> SELECT AU_FNAME,AU_ID FROM AUTHORS WHERE AU_ID= (SELECT AU_ID FROM TITLEAUTHOR WHERE TITLE_ID=(SELECT TITLE_ID FROM TITLES WHERE TITLE='NET ETIQUETTE')); 
++----------+-------------+
+| AU_FNAME | AU_ID       |
++----------+-------------+
+| Charlene | 486-29-1786 |
++----------+-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT AU_FNAME,AU_LNAME,AU_ID FROM AUTHORS WHERE AU_ID IN ( SELECT AU_ID FROM TITLEAUTHOR WHERE TITLE_ID IN (SELECT TITLE_ID FROM TITLES WHERE TYPE='BUSINESS'));
++----------+------------+-------------+
+| AU_FNAME | AU_LNAME   | AU_ID       |
++----------+------------+-------------+
+| Marjorie | Green      | 213-46-8915 |
+| Michael  | O'Leary    | 267-41-2394 |
+| Dean     | Straight   | 274-80-9391 |
+| Abraham  | Bennet     | 409-56-7008 |
+| Stearns  | MacFeather | 724-80-9391 |
++----------+------------+-------------+
+5 rows in set (0.00 sec)
+
+
+
+
+
+mysql> SELECT MAX(PRICE) FROM TITLES GROUP BY PUB_ID HAVING PUB_ID=0736;
++------------+
+| MAX(PRICE) |
++------------+
+|    19.9900 |
++------------+
+1 row in set (0.00 sec)
+
+
+mysql> SELECT TITLE,TITLE_ID,PRICE FROM TITLES WHERE PRICE>( SELECT MAX(PRICE) FROM TITLES GROUP BY PUB_ID HAVING PUB_ID=0736);
++-----------------------------------------------------------------+----------+---------+
+| TITLE                                                           | TITLE_ID | PRICE   |
++-----------------------------------------------------------------+----------+---------+
+| But Is It User Friendly?                                        | PC1035   | 22.9500 |
+| Secrets of Silicon Valley                                       | PC8888   | 20.0000 |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | PS1372   | 21.5900 |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | TC3218   | 20.9500 |
++-----------------------------------------------------------------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT TITLE,TITLE_ID,PRICE FROM TITLES WHERE PRICE>( SELECT MIN(PRICE) FROM TITLES GROUP BY PUB_ID HAVING PUB_ID=1389);
++-----------------------------------------------------------------+----------+---------+
+| TITLE                                                           | TITLE_ID | PRICE   |
++-----------------------------------------------------------------+----------+---------+
+| The Busy Executive's Database Guide                             | BU1032   | 19.9900 |
+| Straight Talk About Computers                                   | BU7832   | 19.9900 |
+| Silicon Valley Gastronomic Treats                               | MC2222   | 19.9900 |
+| But Is It User Friendly?                                        | PC1035   | 22.9500 |
+| Secrets of Silicon Valley                                       | PC8888   | 20.0000 |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | PS1372   | 21.5900 |
+| Prolonged Data Deprivation: Four Case Studies                   | PS3333   | 19.9900 |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | TC3218   | 20.9500 |
+| Sushi, Anyone?                                                  | TC7777   | 14.9900 |
++-----------------------------------------------------------------+----------+---------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT TITLE,TITLE_ID,PRICE FROM TITLES WHERE PRICE>( SELECT MIN(PRICE) FROM TITLES GROUP BY PUB_ID HAVING PUB_ID=0736);
++-----------------------------------------------------------------+----------+---------+
+| TITLE                                                           | TITLE_ID | PRICE   |
++-----------------------------------------------------------------+----------+---------+
+| The Busy Executive's Database Guide                             | BU1032   | 19.9900 |
+| Cooking with Computers: Surreptitious Balance Sheets            | BU1111   | 11.9500 |
+| Straight Talk About Computers                                   | BU7832   | 19.9900 |
+| Silicon Valley Gastronomic Treats                               | MC2222   | 19.9900 |
+| But Is It User Friendly?                                        | PC1035   | 22.9500 |
+| Secrets of Silicon Valley                                       | PC8888   | 20.0000 |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | PS1372   | 21.5900 |
+| Is Anger the Enemy?                                             | PS2091   | 10.9500 |
+| Life Without Fear                                               | PS2106   |  7.0000 |
+| Prolonged Data Deprivation: Four Case Studies                   | PS3333   | 19.9900 |
+| Emotional Security: A New Algorithm                             | PS7777   |  7.9900 |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | TC3218   | 20.9500 |
+| Fifty Years in Buckingham Palace Kitchens                       | TC4203   | 11.9500 |
+| Sushi, Anyone?                                                  | TC7777   | 14.9900 |
++-----------------------------------------------------------------+----------+---------+
+14 rows in set (0.00 sec)
+
+mysql> SELECT TITLE,TITLE_ID,PRICE FROM TITLES WHERE PRICE>( SELECT MIN(PRICE) FROM TITLES GROUP BY PUB_ID HAVING PUB_ID=9999);
+Empty set (0.00 sec)
+
+mysql> SELECT PUB_NAME ,CITY FROM PUBLISHERS WHERE CITY IN (SELECT CITY FROM AUTHORS);
++-----------------------+----------+
+| PUB_NAME              | CITY     |
++-----------------------+----------+
+|  Algodata Infosystems | Berkeley |
++-----------------------+----------+
+1 row in set (0.00 sec)
+
+mysql> \T C:\Users\mariya.hussain\Desktop\Mern_Training\DAY11\HandsOn-07

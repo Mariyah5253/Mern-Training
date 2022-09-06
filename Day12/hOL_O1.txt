@@ -1,0 +1,379 @@
+switched to db blazeclan
+blazeclan> exit
+
+
+test> show databases;
+admin       40.00 KiB
+blazeclan   40.00 KiB
+config     108.00 KiB
+local       40.00 KiB
+
+
+blazeclan> show collections
+departments
+
+
+test> use blazeclan
+switched to db blazeclan
+
+
+blazeclan> db.getCollectionInfos();
+[
+  {
+    name: 'departments',
+    type: 'collection',
+    options: {},
+    info: {
+      readOnly: false,
+      uuid: UUID("61383adf-c1ff-4aab-b885-abbe798f5084")
+    },
+    idIndex: { v: 2, key: { _id: 1 }, name: '_id_' }
+  }
+]
+
+
+blazeclan> show collections
+departments
+blazeclan> db.collection.find()
+
+blazeclan> db.blazecla.find()
+
+blazeclan> db.blazeclan.find()
+
+blazeclan> db.departments.find()
+[
+  {
+    _id: ObjectId("6310e9fe7b49e5afa2c018c7"),
+    department_id: 40,
+    department_name: 'Human Resources',
+    manager_id: 203,
+    location_id: 2400
+  },
+  {
+    _id: ObjectId("6310e9fe7b49e5afa2c018c8"),
+    department_id: 80,
+    department_name: 'Sales',
+    manager_id: 145,
+    location_id: 2500
+  },
+  {
+    _id: ObjectId("6310e9fe7b49e5afa2c018c9"),
+    department_id: 60,
+    department_name: 'IT',
+    manager_id: 103,
+    location_id: 1400
+  }
+
+  blazeclan> db.employees.find({},{"first_name":true,"last_name":true,"job":true,"salary":true,"_id":0}).limit(5)
+[
+  { first_name: 'Diana', last_name: 'Lorentz', salary: 4200 },
+  { first_name: 'Nancy', last_name: 'Greenberg', salary: 12008 },
+  { first_name: 'Daniel', last_name: 'Faviet', salary: 9000 },
+  { first_name: 'John', last_name: 'Chen', salary: 8200 },
+  { first_name: 'Ismael', last_name: 'Sciarra', salary: 7700 }
+]
+
+
+blazeclan> db.employees.find({"salary":{ $gt : 12000}},{"last_name":true,"salary":true})
+[
+  { _id: 108, last_name: 'Greenberg', salary: 12008 },
+  { _id: 102, last_name: 'De Haan', salary: 17000 },
+  { _id: 100, last_name: 'King', salary: 24000 },
+  { _id: 101, last_name: 'Kochhar', salary: 17000 },
+  { _id: 146, last_name: 'Partners', salary: 13500 },
+  { _id: 145, last_name: 'Russell', salary: 14000 },
+  { _id: 201, last_name: 'Hartstein', salary: 13000 },
+  { _id: 205, last_name: 'Higgins', salary: 12008 }
+]
+
+blazeclan> db.employees.find({"_id":{ $eq : 176}},{"last_name":true,"department_id":true})
+[ { _id: 176, last_name: 'Taylor', department_id: 80 } ]
+blazeclan>
+
+
+
+blazeclan> db.employees.find({$or : [{"salary" : { $gt:12000}},{"salary" : { $lt :5000 }}]},{"last_name":true,"department_id":true,"salary":true})
+[
+  { _id: 107, last_name: 'Lorentz', salary: 4200, department_id: 60 },
+  {
+    _id: 108,
+    last_name: 'Greenberg',
+    salary: 12008,
+    department_id: 100
+  },
+  { _id: 105, last_name: 'Austin', salary: 4800, department_id: 60 },
+  { _id: 115, last_name: 'Khoo', salary: 3100, department_id: 30 },
+  { _id: 116, last_name: 'Baida', salary: 2900, department_id: 30 },
+  { _id: 102, last_name: 'De Haan', salary: 17000, department_id: 90 },
+  { _id: 118, last_name: 'Himuro', salary: 2600, department_id: 30 },
+  {
+    _id: 119,
+    last_name: 'Colmenares',
+    salary: 2500,
+    department_id: 30
+  },
+  { _id: 106, last_name: 'Pataballa', salary: 4800, department_id: 60 },
+  { _id: 100, last_name: 'King', salary: 24000, department_id: 90 },
+  { _id: 125, last_name: 'Nayer', salary: 3200, department_id: 50 },
+  {
+    _id: 126,
+    last_name: 'Mikkilineni',
+    salary: 2700,
+    department_id: 50
+  },
+  { _id: 127, last_name: 'Landry', salary: 2400, department_id: 50 },
+  { _id: 128, last_name: 'Markle', salary: 2200, department_id: 50 },
+  { _id: 129, last_name: 'Bissot', salary: 3300, department_id: 50 },
+  { _id: 131, last_name: 'Marlow', salary: 2500, department_id: 50 },
+  { _id: 101, last_name: 'Kochhar', salary: 17000, department_id: 90 },
+  { _id: 132, last_name: 'Olson', salary: 2100, department_id: 50 },
+  { _id: 130, last_name: 'Atkinson', salary: 2800, department_id: 50 },
+  { _id: 117, last_name: 'Tobias', salary: 2800, department_id: 30 }
+]
+Type "it" for more
+
+
+blazeclan> db.employees.find({$or : [{"department_id" : { $eq:20}},{"department_id" : { $eq :50 }}]},{"first_name":true,"last_name":true,"department_id":true})
+[
+  {
+    _id: 120,
+    first_name: 'Matthew',
+    last_name: 'Weiss',
+    department_id: 50
+  },
+  {
+    _id: 122,
+    first_name: 'Payam',
+    last_name: 'Kaufling',
+    department_id: 50
+  },
+  {
+    _id: 123,
+    first_name: 'Shanta',
+    last_name: 'Vollman',
+    department_id: 50
+  },
+  {
+    _id: 124,
+    first_name: 'Kevin',
+    last_name: 'Mourgos',
+    department_id: 50
+  },
+  {
+    _id: 125,
+    first_name: 'Julia',
+    last_name: 'Nayer',
+    department_id: 50
+  },
+  {
+    _id: 126,
+    first_name: 'Irene',
+    last_name: 'Mikkilineni',
+    department_id: 50
+  },
+  {
+    _id: 127,
+    first_name: 'James',
+    last_name: 'Landry',
+    department_id: 50
+  },
+  {
+    _id: 128,
+    first_name: 'Steven',
+    last_name: 'Markle',
+    department_id: 50
+  },
+  {
+    _id: 129,
+    first_name: 'Laura',
+    last_name: 'Bissot',
+    department_id: 50
+  },
+
+
+
+
+blazeclan> db.employees.find({"hire_date" : /^1994/},{"last_name":1,"hire_date":1})
+
+blazeclan> db.employees.find({"hire_date" : /^2003/},{"last_name":1,"hire_date":1})
+[
+  {
+    _id: 115,
+    last_name: 'Khoo',
+    hire_date: '2003-06-17T18:30:00.000Z'
+  },
+  {
+    _id: 114,
+    last_name: 'Raphaely',
+    hire_date: '2003-01-06T18:30:00.000Z'
+  },
+  {
+    _id: 122,
+    last_name: 'Kaufling',
+    hire_date: '2003-05-31T18:30:00.000Z'
+  },
+  {
+    _id: 100,
+    last_name: 'King',
+    hire_date: '2003-07-16T18:30:00.000Z'
+  },
+  {
+    _id: 137,
+    last_name: 'Ladwig',
+    hire_date: '2003-08-13T18:30:00.000Z'
+  },
+  {
+    _id: 141,
+    last_name: 'Rajs',
+    hire_date: '2003-11-16T18:30:00.000Z'
+  },
+  {
+    _id: 200,
+    last_name: 'Whalen',
+    hire_date: '2003-10-16T18:30:00.000Z'
+  }
+]
+
+ommission_pct":1,"_id":0})
+[
+  { last_name: 'Errazuriz', salary: 12000, commission_pct: 0.3 },
+  { last_name: 'Partners', salary: 13500, commission_pct: 0.3 },
+  { last_name: 'Zlotkey', salary: 10500, commission_pct: 0.2 },
+  { last_name: 'Cambrault', salary: 11000, commission_pct: 0.3 },
+  { last_name: 'Bernstein', salary: 9500, commission_pct: 0.25 },
+  { last_name: 'Tucker', salary: 10000, commission_pct: 0.3 },
+  { last_name: 'Hall', salary: 9000, commission_pct: 0.25 },
+  { last_name: 'Cambrault', salary: 7500, commission_pct: 0.2 },
+  { last_name: 'Olsen', salary: 8000, commission_pct: 0.2 },
+  { last_name: 'Tuvault', salary: 7000, commission_pct: 0.15 },
+  { last_name: 'Sully', salary: 9500, commission_pct: 0.35 },
+  { last_name: 'McEwen', salary: 9000, commission_pct: 0.35 },
+  { last_name: 'Smith', salary: 8000, commission_pct: 0.3 },
+  { last_name: 'King', salary: 10000, commission_pct: 0.35 },
+  { last_name: 'Doran', salary: 7500, commission_pct: 0.3 },
+  { last_name: 'Russell', salary: 14000, commission_pct: 0.4 },
+  { last_name: 'Sewall', salary: 7000, commission_pct: 0.25 },
+  { last_name: 'Vishney', salary: 10500, commission_pct: 0.25 },
+  { last_name: 'Greene', salary: 9500, commission_pct: 0.15 },
+  { last_name: 'Lee', salary: 6800, commission_pct: 0.1 }
+]
+Type "it" for more
+
+
+blazeclan> db.employees.find({ "commission_pct": { $ne: null } }, { "last_name": 1, "salary": 1, "commission_pct": 1, "_id": 0 }).sort({ "salary": -1 })
+[
+  { last_name: 'Russell', salary: 14000, commission_pct: 0.4 },
+  { last_name: 'Partners', salary: 13500, commission_pct: 0.3 },
+  { last_name: 'Errazuriz', salary: 12000, commission_pct: 0.3 },
+  { last_name: 'Ozer', salary: 11500, commission_pct: 0.25 },
+  { last_name: 'Cambrault', salary: 11000, commission_pct: 0.3 },
+  { last_name: 'Abel', salary: 11000, commission_pct: 0.3 },
+  { last_name: 'Zlotkey', salary: 10500, commission_pct: 0.2 },
+  { last_name: 'Vishney', salary: 10500, commission_pct: 0.25 },
+  { last_name: 'Tucker', salary: 10000, commission_pct: 0.3 },
+  { last_name: 'King', salary: 10000, commission_pct: 0.35 },
+  { last_name: 'Bloom', salary: 10000, commission_pct: 0.2 },
+  { last_name: 'Fox', salary: 9600, commission_pct: 0.2 },
+  { last_name: 'Bernstein', salary: 9500, commission_pct: 0.25 },
+  { last_name: 'Sully', salary: 9500, commission_pct: 0.35 },
+  { last_name: 'Greene', salary: 9500, commission_pct: 0.15 },
+  { last_name: 'Hall', salary: 9000, commission_pct: 0.25 },
+  { last_name: 'McEwen', salary: 9000, commission_pct: 0.35 },
+  { last_name: 'Hutton', salary: 8800, commission_pct: 0.25 },
+  { last_name: 'Taylor', salary: 8600, commission_pct: 0.2 },
+  { last_name: 'Livingston', salary: 8400, commission_pct: 0.2 }
+]
+Type "it" for more
+blazeclan>blazeclan> db.employees.find({ "last_name":  /^..a/ }, { "last_name": 1, "salary": 1, "commission_pct": 1, "_id": 0 })
+[
+  { last_name: 'Grant', salary: 7000, commission_pct: 0.15 },
+  { last_name: 'Grant', salary: 2600, commission_pct: null },
+  { last_name: 'Whalen', salary: 4400, commission_pct: null }
+]
+
+ blazeclan> db.employees.find({$and :[ {last_name:/a/},{last_name:/e/}] },{"last_name":1,"_id":0})
+[
+  { last_name: 'Faviet' },
+  { last_name: 'Raphaely' },
+  { last_name: 'De Haan' },
+  { last_name: 'Colmenares' },
+  { last_name: 'Nayer' },
+  { last_name: 'Markle' },
+  { last_name: 'Davies' },
+  { last_name: 'Partners' },
+  { last_name: 'Philtanker' },
+  { last_name: 'Patel' },
+  { last_name: 'Sewall' },
+  { last_name: 'Fleaur' },
+  { last_name: 'Bates' },
+  { last_name: 'Hartstein' },
+  { last_name: 'Whalen' },
+  { last_name: 'Gates' },
+  { last_name: 'Baer' }
+]
+blazeclan> db.employees.find( {"first_name":/^P/},{"first_name":1,"_id":0})
+[
+  { first_name: 'Payam' },
+  { first_name: 'Peter' },
+  { first_name: 'Peter' },
+  { first_name: 'Peter' },
+  { first_name: 'Patrick' },
+  { first_name: 'Pat' }
+]
+blazeclan>
+
+
+blazeclan> db.employees.find( { "last_name":/l.*l/ }, { "last_name": 1, "_id": 0 })
+[
+  { last_name: 'Vollman' },
+  { last_name: 'Pataballa' },
+  { last_name: 'Mallin' },
+  { last_name: 'Hall' },
+  { last_name: 'Sully' },
+  { last_name: 'Russell' },
+  { last_name: 'Sewall' },
+  { last_name: 'Sullivan' },
+  { last_name: 'Bull' },
+  { last_name: 'Dellinger' },
+  { last_name: 'Dilly' },
+  { last_name: 'OConnell' },
+  { last_name: 'Bell' }
+]
+
+blazeclan> db.employees.find( {$and : [{"job_id": {$in : ["SA_REP","ST_CLERK"]}},{"salary" : {$nin :[2500,3500,7000]}}] }, { "last_name": 1, "_id": 0,"salary":1 })
+[
+  { last_name: 'Nayer', salary: 3200 },
+  { last_name: 'Mikkilineni', salary: 2700 },
+  { last_name: 'Landry', salary: 2400 },
+  { last_name: 'Markle', salary: 2200 },
+  { last_name: 'Bissot', salary: 3300 },
+  { last_name: 'Olson', salary: 2100 },
+  { last_name: 'Atkinson', salary: 2800 },
+  { last_name: 'Mallin', salary: 3300 },
+  { last_name: 'Rogers', salary: 2900 },
+  { last_name: 'Ladwig', salary: 3600 },
+  { last_name: 'Stiles', salary: 3200 },
+  { last_name: 'Gee', salary: 2400 },
+  { last_name: 'Matos', salary: 2600 },
+  { last_name: 'Davies', salary: 3100 },
+  { last_name: 'Bernstein', salary: 9500 },
+  { last_name: 'Tucker', salary: 10000 },
+  { last_name: 'Philtanker', salary: 2200 },
+  { last_name: 'Hall', salary: 9000 },
+  { last_name: 'Cambrault', salary: 7500 },
+  { last_name: 'Olsen', salary: 8000 }
+]
+Type "it" for more
+
+blazeclan> db.employees.find({"commission_pct":.2},{"last_name":1,"salary":1,"commission_pct":1,"_id":0})
+[
+  { last_name: 'Zlotkey', salary: 10500, commission_pct: 0.2 },
+  { last_name: 'Cambrault', salary: 7500, commission_pct: 0.2 },
+  { last_name: 'Olsen', salary: 8000, commission_pct: 0.2 },
+  { last_name: 'Bloom', salary: 10000, commission_pct: 0.2 },
+  { last_name: 'Fox', salary: 9600, commission_pct: 0.2 },
+  { last_name: 'Taylor', salary: 8600, commission_pct: 0.2 },
+  { last_name: 'Livingston', salary: 8400, commission_pct: 0.2 }
+]
+
+
