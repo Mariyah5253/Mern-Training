@@ -1,0 +1,168 @@
+C:\Users\mariya.hussain\Desktop\Mern_Training\Day14>node --version
+v16.16.0
+
+C:\Users\mariya.hussain\Desktop\Mern_Training\Day14>npm --version
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+8.11.0
+
+
+> console.log("Hello Node.js!");
+Hello Node.js!
+undefined
+
+
+> (5+6)*12
+132
+
+> for(i=0;i<5;i++)
+... { console.log(i);
+... }
+0
+1
+2
+3
+4
+undefined
+
+
+> console.log(5<6)
+true
+
+function greeting(name)
+{
+    console.log("Hello ",name);
+    console.log("Welcome To Blazeclan");
+    console.log("Hve A NICE day!!!");    
+
+
+}
+
+
+Hello  Vijay
+Welcome To Blazeclan
+Hve A NICE day!!!
+mriya
+
+
+> .save first.js
+Session saved to: first.js
+
+
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day14> node first.js
+Hello  Vijay
+Welcome To Blazeclan 
+Have A Nice Day
+
+> var y=6+4
+undefined
+> y
+10
+> _+1
+11
+> y=_+1
+12
+>
+
+
+> global
+<ref *1> Object [global] {
+  global: [Circular *1],
+  clearInterval: [Function: clearInterval],
+  clearTimeout: [Function: clearTimeout],
+  setInterval: [Function: setInterval],
+  setTimeout: [Function: setTimeout] {
+    [Symbol(nodejs.util.promisify.custom)]: [Getter]
+  },
+  queueMicrotask: [Function: queueMicrotask],
+  performance: Performance {
+    nodeTiming: PerformanceNodeTiming {
+      name: 'node',
+      entryType: 'node',
+      startTime: 0,
+      duration: 8478.858799934387,
+      nodeStart: 0.6996002197265625,
+      v8Start: 7.723299980163574,
+      bootstrapComplete: 30.858400344848633,
+      environment: 18.21480083465576,
+      loopStart: 53.607900619506836,
+      loopExit: -1,
+      idle
+
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day14> node repl.js
+
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day14> node repl.js
+$ Exiting REPL... 11
+
+
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day14> node Node.js Two Thre Four;
+$ [
+  'C:\\Program Files\\nodejs\\node.exe',
+  'C:\\Users\\mariya.hussain\\Desktop\\Mern_Training\\Day14\\Node.js',
+  'Two',
+  'Thre',
+  'Four'
+
+
+> console
+Object [console] {
+  log: [Function: log],
+  warn: [Function: warn],
+  dir: [Function: dir],
+  time: [Function: time],
+  timeEnd: [Function: timeEnd],
+  timeLog: [Function: timeLog],
+  trace: [Function: trace],
+  assert: [Function: assert],
+  clear: [Function: clear],
+  count: [Function: count],
+  countReset: [Function: countReset],
+  group: [Function: group],
+  groupEnd: [Function: groupEnd],
+  table: [Function: table],
+  debug: [Function: debug],
+  info: [Function: info],
+  dirxml: [Function: dirxml],
+  error: [Function: error],
+  groupCollapsed: [Function: groupCollapsed],
+  Console: [Function: Console],
+  profile: [Function: profile],
+  profileEnd: [Function: profileEnd],
+  timeStamp: [Function: timeStamp],
+  context: [Function: context]
+}
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day14> node Node.js
+Testing Format Specifier
+Hello   Mariya,Welcome To  Blazeclan
+Here Age is 22
+
+
+> console.clear();
+
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day14> node Node.js
+Demo of Console.count()
+item1: 1
+item2: 1
+item2: 2
+item1: 2
+
+
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day14> node trace_and_timespent.js
+$ Wlecome functin is running
+Hello function is running
+Greet Function is running
+Trace
+    at greet (C:\Users\mariya.hussain\Desktop\Mern_Training\Day14\trace_and_timespent.js:16:13)
+    at hello1 (C:\Users\mariya.hussain\Desktop\Mern_Training\Day14\trace_and_timespent.js:10:5)
+    at welcome (C:\Users\mariya.hussain\Desktop\Mern_Training\Day14\trace_and_timespent.js:21:5)
+    at Object.<anonymous> (C:\Users\mariya.hussain\Desktop\Mern_Training\Day14\trace_and_timespent.js:25:1)
+    at Module._compile (node:internal/modules/cjs/loader:1105:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1159:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)
+    at node:internal/main/run_main_module:17:47
+
+
+
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day14> node trace_and_timespent.js
+$ default: 0.078ms
