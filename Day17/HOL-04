@@ -1,0 +1,135 @@
+1.
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day17>   node http.js
+Server running at port 5000...
+
+
+2.
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day17> node routes.js   
+Server running at port 5000...
+
+
+3.PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day17> node demo.jsay17> node bigfile_read.js
+Server running at port 5000...
+
+
+4.
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day17> node custom_module.js 
+Area Of the circle is 50.26548245743669
+Circumference Of the circle is 25.132741228718345
+
+5.
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day17\chalk_example> node chalk_exmap.js
+Hello Welcome To Our Scociety
+Snap!! Something Went Wrong
+
+
+6..index.html
+From Weatherapi.js
+weatherapi.js:21 Temperature is : 18
+weatherapi.js:22 Humidity is : 83
+weatherapi.js:23 Location is : London
+--------------------------------------------------------------------------------------------------------------------
+7.index1.html
+{football: Array(10), cricket: Array(1), golf: Array(0)}
+cricket
+: 
+Array(1)
+0
+: 
+{stadium: 'National Stadium, Karachi', country: 'Pakistan', region: '', tournament: 'Pakistan vs England Twenty20 Series 2022', start: '2022-09-15 15:30', …}
+length
+: 
+1
+[[Prototype]]
+: 
+Array(0)
+football
+: 
+Array(10)
+0
+: 
+{stadium: 'Blackburn Rovers', country: 'United Kingdom', region: '', tournament: 'Sky Bet Championship', start: '2022-09-13 19:45', …}
+1
+: 
+{stadium: 'Huddersfield Town Fc', country: 'United Kingdom', region: '', tournament: 'Sky Bet Championship', start: '2022-09-13 19:45', …}
+2
+: 
+{stadium: 'Hull City Fc', country: 'United Kingdom', region: '', tournament: 'Sky Bet Championship', start: '2022-09-13 19:45', …}
+3
+: 
+{stadium: 'Middlesbrough', country: 'United Kingdom', region: '', tournament: 'Sky Bet Championship', start: '2022-09-13 19:45', …}
+4
+: 
+{stadium: 'Swansea City Fc(A)', country: 'United Kingdom', region: '', tournament: 'Sky Bet Championship', start: '2022-09-13 19:45', …}
+5
+: 
+{stadium: 'Preston North End Fc', country: 'United Kingdom', region: '', tournament: 'Sky Bet Championship', start: '2022-09-13 19:45', …}
+6
+: 
+{stadium: 'Barnsley Fc', country: 'United Kingdom', region: '', tournament: 'Sky Bet League One', start: '2022-09-13 19:45', …}
+7
+: 
+{stadium: 'Burton Albion', country: 'United Kingdom', region: '', tournament: 'Sky Bet League One', start: '2022-09-13 19:45', …}
+8
+: 
+{stadium: 'Charlton Athletic', country: 'United Kingdom', region: '', tournament: 'Sky Bet League One', start: '2022-09-13 19:45', …}
+9
+: 
+{stadium: 'Cheltenham Town Fc', country: 'United Kingdom', region: '', tournament: 'Sky Bet League One', start: '2022-09-13 19:45', …}
+length
+: 
+10
+[[Prototype]]
+: 
+Array(0)
+golf
+: 
+[]
+
+--------------------------------------------------------------------------------------------------------------------
+
+8.index3.html
+Object
+moon_illumination
+: 
+"84"
+moon_phase
+: 
+"Full Moon"
+moonrise
+: 
+"08:08 PM"
+moonset
+: 
+"08:38 AM"
+sunrise
+: 
+"05:49 AM"
+sunset
+: 
+"06:17 PM"
+[[Prototype]]
+: 
+Object
+
+
+9.
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day17> node readline.js
+ Enter the first Name : Mariya
+Enter the Last Name : Hussain
+Enter the Your Age: 22
+Enter the Your Gender: Female
+Your Full Name is :  Mariya Hussain
+Your Age is :  22
+Your gender is :  Female
+Your Age next Year will be :  23
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day17> node demo1.js   
+
+
+10.
+
+Temperature is : 18
+weatherapi.js:22 Humidity is : 77
+weatherapi.js:23 Location is : London
+
+

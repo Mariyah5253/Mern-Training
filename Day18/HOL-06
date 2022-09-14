@@ -1,0 +1,23 @@
+1.
+2.
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day18\express> npm start
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+
+> express@1.0.0 start
+> nodemon app.js     
+
+[nodemon] 2.0.19
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node app.js`
+It Worked !!
+
+
+3
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day18\express> node routes.js
+It Worked !!
+
+4 . & 5.
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day18\express\future_value> node app.js      
+It Worked !!

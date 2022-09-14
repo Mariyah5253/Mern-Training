@@ -1,0 +1,122 @@
+//Demostrating callstack 
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day15> node callstack.js
+Wlecome function is running
+Hello function is running
+Greet Function is running
+
+//Demostrating setTimeout()
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day15> node callstack.js
+Start
+End
+Hello from Callback2 
+Hello from Callback1
+
+//javaScript is single-threaded so it can only do one thing at a time. When calling setTimeout with 0ms timeout you are telling the engine to schedule execution of that func as soon as it can. This will generally be after your current call stack has completed execution.
+
+It's effectively a way of scheduling work to execute asynchronously.
+
+//Point 2,3 demostrated in index.html 
+
+
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day15> node ecommerce.js;
+Create Oder Function is Running
+proceed To Payment Function is running
+Show Oder Summanry Function is running
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day15> 
+
+
+> var prom= new Promise(function(){});
+> prom
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 300,
+  [Symbol(trigger_async_id_symbol)]: 5,
+  [Symbol(destroyed)]: { destroyed: false }
+
+}
+
+
+
+> var prom1=new Promise (function(resolve,reject){      
+... if(true)
+... { resolve("I am getting resolved");}
+... else {reject("Oops! Rejected.")
+..... }})
+undefined
+> prom1.then(function(result){
+... console.log(result);}
+... )
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 1971,
+  [Symbol(trigger_async_id_symbol)]: 1697,
+  [Symbol(destroyed)]: { destroyed: false }
+}
+> I am getting resolved
+
+
+> var a=Promise.resolve(5);
+undefined
+> a.then(function (a){
+... console.log(a*a);})
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 3076,
+  [Symbol(trigger_async_id_symbol)]: 2920,
+  [Symbol(destroyed)]: { destroyed: false }
+}
+> 25
+> var b =Promise.resolve("MY NAME HERE");
+undefined
+> b.then(function(arg){
+... console.log(arg);})
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 3677,
+  [Symbol(trigger_async_id_symbol)]: 3509,
+  [Symbol(destroyed)]: { destroyed: false }
+}
+> MY NAME HERE
+
+S C:\Users\mariya.hussain\Desktop\Mern_Training\Day15> node micro_macro_demo.js
+This Is Begining
+Hey !! from Promise
+Last Of The the programm
+Resolved
+This is SettimeOut function running after 1000ms 
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day15> 
+
+a)Web Api will be placed in Macro task Queue;
+b)Promise and NextTick()
+
+
+
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day15> node micro_macro_demo.js
+This Is Begining
+Hey !! from Promise
+Last Of The the programm
+Promise got Resolved
+Executed in the next iteration
+This is SettimeOut function running after 1000ms
+
+
+
+> async function fun1(){
+... console.log("Hey from Async");
+... return "Hello";}
+undefined
+> fun1()
+Hey from Async
+Promise {
+  'Hello',
+  [Symbol(async_id_symbol)]: 1941,
+  [Symbol(trigger_async_id_symbol)]: 5,
+  [Symbol(destroyed)]: { destroyed: false }
+}
+> return "Hello";}
+
+
+
+
+
+

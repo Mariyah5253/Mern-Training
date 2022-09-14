@@ -1,0 +1,95 @@
+1
+C:\Users\mariya.hussain\Desktop\Mern_Training\Day18>npm install mysql
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+
+added 11 packages, and audited 12 packages in 6s
+
+found 0 vulnerabilities
+
+
+2.
+mysql> create database HR_DB;
+Query OK, 1 row affected (0.01 sec)
+
+
+3.
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day18> node mysqlcon.js
+Connected to mysql
+PS C:\Users\mariyahussain\Desktop\Mern_Training\Day18> 
+
+4.
+PS C:\Users\mariyahussain\Desktop\Mern_Training\Day18> node mysqlcon.js
+mysql> use hr_db;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_hr_db |
++-----------------+
+| todos           |
++-----------------+
+1 row in set (0.00 sec)
+
+5) 
+a]
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day18> node mysqlcon.js;
+mysql> select * from todos;
++--------+------------+----------+
+| deptid | deptName   | city     |
++--------+------------+----------+
+|      1 | Accounting | New York |
+|      2 | Research   | Dallas   |
+|      3 | Sales      | Chicago  |
+|      4 | Operations | Boston   |
+|      5 | R&D        | Pune     |
++--------+------------+----------+
+5 rows in set (0.00 sec)
+
+
+6.a.
+PS C:\Users\mariyahussain\Desktop\Mern_Training\Day18> node mysqlcon1.js
+[
+  RowDataPacket { deptid: 1, deptName: 'Accounting', city: 'New York' },
+  RowDataPacket { deptid: 2, deptName: 'Research', city: 'Dallas' },
+  RowDataPacket { deptid: 3, deptName: 'Sales', city: 'Chicago' },
+  RowDataPacket { deptid: 4, deptName: 'Operations', city: 'Boston' },
+  RowDataPacket { deptid: 5, deptName: 'R&D', city: 'Pune' }
+]
+
+
+b.
+PS C:\Users\mariya.hussain\Desktop\Mern_Training\Day18> node city.js pune;
+[ RowDataPacket { deptid: 5, deptName: 'R&D', city: 'Pune' } ]
+PS C:\Users\mariyahussain\Desktop\Mern_Training\Day18> 
+
+c.
+PS C:\Users\mariyahussain\Desktop\Mern_Training\Day18> ning\Day18> node depart.js Operations;      
+[ RowDataPacket { deptid: 4, deptName: 'Operations', city: 'Boston' } ]
+
+
+7.
+PS C:\Users\mariyahussain\Desktop\Mern_Training\Day18> node update.js
+mysql> select * from todos;
++--------+------------+---------+
+| deptid | deptName   | city    |
++--------+------------+---------+
+|      1 | Accounting | TEXAS   |
+|      2 | Research   | Dallas  |
+|      3 | Sales      | Chicago |
+|      4 | Operations | Boston  |
+|      5 | R&D        | Pune    |
++--------+------------+---------+
+
+
+8.
+PS C:\Users\mariyahussain\Desktop\Mern_Training\Day18> node delete.js
+
+OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 0,
+  serverStatus: 34,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0
+}
