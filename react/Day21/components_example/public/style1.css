@@ -1,0 +1,25 @@
+
+nav ul{
+    list-style: none;
+    font-size: 30px;
+    font-family: RockWell;
+    margin-right:50px;
+    
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+ul li{
+    display:inline;
+    margin:20px;
+    
+}
+footer{
+    position: fixed;
+    bottom: 0;
+background-color: grey;
+width: 100%;
+height: 60px;
+}
+

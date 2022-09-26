@@ -1,0 +1,24 @@
+Q1.
+npm install -g @angular/cli
+
+
+Q2.
+ng version
+
+Angular CLI: 14.2.3
+Node: 16.16.0
+Package Manager: npm 8.11.0
+OS: win32 x64
+
+
+C:\Users\mariya.hussain\Desktop\Mern_Training\react\Day27>ng --help
+ng <command>
+
+Commands:
+  ng add <collection>            Adds support for an external library to your project.
+  ng analytics                   Configures the gathering of Angular CLI usage metrics. See
+                                 https://angular.io/cli/usage-analytics-gathering
+  ng build [project]             Compiles an Angular application or library into an output directory named dist/ at the
+             Builds and serves an Angular application, then runs end-to-end tests.      [aliases: e]
+
+For more information, see https://angular.io/cli/.
