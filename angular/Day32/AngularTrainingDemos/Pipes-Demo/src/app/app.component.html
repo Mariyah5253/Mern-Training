@@ -1,0 +1,27 @@
+<h1>Angular - {{ title }}</h1>
+<h3>Using 'date' pipe</h3>
+<p>Current Date and Time {{ today }}</p>
+<p>Current Date {{ today | date }}</p>
+<p>Pipes can also take parameter(s)</p>
+<p>Current Date {{ today | date:"dd/MM/yyyy" }}</p>
+<p>Current Time {{ today | date:"HH:mm:ss" }}</p>
+<h3>Using 'currency' pipe</h3>
+<p>Amount is: {{ amount }}</p>
+<p>Amount in Euros: {{ amount | currency:'EUR' }}</p>
+<p>Amount in INR: {{ amount | currency:'INR' }}</p>
+<h3>Using 'slice' pipe</h3>
+<p>The array: {{ theArray }}</p>
+<p>Sliced array: {{ theArray | slice:1:5 }}</p>
+<p>Sliced array: {{ theArray | slice:0:3 }}</p>
+<p>Sliced array: {{ theArray | slice:3 }}</p>
+<h3>Chaining pipes</h3>
+<p>Current Date {{ today | date | uppercase }}</p>
+<h3>Custom Pipe</h3>
+<p>Amount is: {{ amount }}</p>
+<p>Amount ^ 3: {{ amount | multiplier:3 }}</p>
+<p>2 ^ 4: {{ 2 | multiplier:4 }}</p>
+<p>10 ^ 3 = {{ 10 | multiplier:3 }}</p>
+<p>786 ^ 1 = {{ 786 | multiplier }}</p>
+<h3>Pipe and Precedece</h3>
+<p>{{ true ? 'true' : 'false' | uppercase }}</p>
+<p>{{ (true ? 'true' : 'false') | uppercase }}</p>

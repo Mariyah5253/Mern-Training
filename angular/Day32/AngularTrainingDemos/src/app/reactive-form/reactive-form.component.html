@@ -1,0 +1,8 @@
+<h2>Reactive Form</h2>
+Favorite Color:
+<input type="text" [formControl]="favoriteColorControl">
+<br />
+<br />
+<div *ngIf="favoriteColorControl">
+    Your favorite color: {{ favoriteColorControl | json }}
+</div>

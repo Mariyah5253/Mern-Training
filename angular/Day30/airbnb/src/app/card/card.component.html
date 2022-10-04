@@ -1,0 +1,12 @@
+
+<div class="card">
+    <img [src]=props.coverImg alt="" class="card--image" />
+    <div class="card--stats">
+     <img [src]="img2" alt="" className="card--star" />
+        <span>{{props.statsRating}}</span>
+        <span class='gray'>{{props.statsReviewCount}} </span>
+        <span class='gray'>{{props.location}}</span>
+    </div>
+    <p>{{props.title}}</p>
+    <p id='bold'>`From ${{props.price}} / person`</p>
+</div>

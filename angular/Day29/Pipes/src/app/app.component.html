@@ -1,0 +1,50 @@
+<h3>Currency</h3>
+<p>Amount in Euros: {{ amount | currency:'EUR' }}</p>
+<p>Amount in INR: {{ amount | currency:'INR' }}</p>
+<h3>Date</h3>
+<p> {{ today | date:"dd/MM/yyyy" }}</p>
+<p>Current Time {{ today | date:"HH:mm:ss" }}</p>
+<h3>UpperCase</h3>
+<p> {{ title | uppercase }}</p>
+
+
+
+
+
+
+<h3>The array: {{ theArray }}</h3>
+<p>Sliced array: {{ theArray | slice:1:5 }}</p>
+<p>Sliced array: {{ theArray | slice:0:3 }}</p>
+<p>Sliced array: {{ theArray | slice:3 }}</p>
+
+
+<h3>LowerCase</h3>
+<p>{{ title | lowercase }}</p>
+
+<p>{{ (true ? 'true' : 'false') | lowercase }}</p>
+
+
+<h3>Custom Pipe : Capitalize</h3>
+<p>{{ title | capitalize }}</p>
+
+<h3>Custom Pipe: Sqrt</h3>
+<p>Square root of 64 is {{ 64 | sqrt }}</p>
+
+<h3>Custom Pipe: Reverse</h3>
+<p>Reverse of "Mariya" {{ "Mariya" | reverse }}</p>
+
+
+
+<h3>Custom Pipe: Pglatin</h3>
+<p>Piglatin of "abdce" is {{ "abdce" | reverse |piglatin }}</p>
+
+
+<h3>Custom Pipe: Multiplier</h3>
+<p>4 raised to power 2  is  {{ 4 | multiplier:2 }}</p>
+
+
+
+<h3>Custom Pipe: Myencrpt</h3>
+<p>Encrpt of "Mariya" is {{ "Mariya" | myencrpt }}</p>
+
+

@@ -1,0 +1,15 @@
+h3 {
+    color: red;
+}
+h4 {
+    color: blue;
+}
+img {
+    border-radius: 20px;
+    width: 400px;
+}
+
+.bordered {
+    border: 2px dashed red;
+    background-color: bisque;
+}

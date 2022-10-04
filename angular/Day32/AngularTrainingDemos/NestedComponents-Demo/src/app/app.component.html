@@ -1,0 +1,20 @@
+<h1>Angular - {{ title }}</h1>
+
+<!-- 
+<h3> Sending data to child component </h3>
+<div *ngFor="let human of humans">
+    <app-user-details
+        [props]="human">
+    </app-user-details>
+</div>
+
+-->
+<h3>Getting data from child component</h3>
+<app-item-output
+    (newItemEvent)="addItem($event)" >
+</app-item-output>
+<ul>
+    <li *ngFor="let item of items"> {{ item }}</li>
+</ul>
+
+

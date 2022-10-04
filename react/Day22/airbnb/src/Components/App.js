@@ -3,11 +3,11 @@ import Navbar from './Navbar';
 import Hero from './Hero';
 import Card from './Card';
 function App(){
-    // <Hero/>
+    
     return(
         <>
         <Navbar/>
-       
+        <Hero/>
         <Card
         img="../images/katie-zaferes.png"
         rating="5.0"

@@ -1,0 +1,9 @@
+<p>Get All users Info.</p>
+
+<button type="button" (click)="makeRequest()">
+    Make Request
+</button>
+<div *ngIf="loading">Loading...</div>
+<pre>
+    {{ data1 | json }}
+</pre>

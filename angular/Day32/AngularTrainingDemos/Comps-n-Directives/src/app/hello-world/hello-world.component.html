@@ -1,0 +1,69 @@
+<!-- 
+<h3>Our Hello World Component</h3>
+<h4>Why Angular?</h4>
+<ul>
+    <li>Speed and Performace</li>
+    <li>Cross Platform</li>
+    <li>Component Based Functioning</li>
+    <li>Modern Web Framework</li>
+</ul>
+<p>Name : {{ name }}</p>
+<p>Age : {{ age }} years</p>
+<p>Marital Status : {{ married }}</p>
+<p>Expression : {{ 2 + 5 }}</p>
+<p>Next year, you will be {{ age + 1 }} years old.</p>
+-->
+
+<!-- Data Binding -->
+<h3>{{ title1 }}</h3>
+<!-- Property Binding -->
+<img [src]="imgUrl">
+<br />
+<div>
+    <!-- Event Binding -->
+    <button (click)="handleClick()">Click Me!</button>
+</div>
+<br />
+<h1>Directives</h1>
+<h4>The NgIf Directive</h4>
+<div *ngIf="false">
+    <p>Testing *ngIf Directive</p>
+</div>
+<div *ngIf="age > 50">
+    <p>Yet another test - using *ngIf...</p>
+</div>
+<div *ngIf="ourFunction(12)">
+    <p>It is an EVEN number!</p>
+</div>
+<h4>The NgSwitch Directive</h4>
+<div class="container" [ngSwitch]="dow">
+    <div *ngSwitchCase=0>Sunday</div>
+    <div *ngSwitchCase=1>Monday</div>
+    <div *ngSwitchCase=2>Tuesday</div>
+    <div *ngSwitchCase=3>Wednesday</div>
+    <div *ngSwitchCase=4>Thursday</div>
+    <div *ngSwitchCase=5>Friday</div>
+    <div *ngSwitchCase=6>Saturday</div>
+    <div *ngSwitchDefault>Invalid day of the week!</div>
+</div>
+<h4>The NgFor Directive</h4>
+<h5>Technical Skills are as follows:</h5>
+<div *ngFor="let s of skills">
+    <div>{{ s }}</div>
+</div>
+<h4>The NgClass Directive</h4>
+<div [ngClass]="{bordered: false}">
+    This is never bordered
+</div>
+<div [ngClass]="{bordered: true}">
+    This is ALWAYS bordered
+</div>
+<h4>The NgStyle Directive</h4>
+<p [ngStyle]="{backgroundColor: getColor()}">
+This paragraph will have either a RED or
+GREEN background which choosen randomly.
+</p>
+
+<br /><br />
+
+

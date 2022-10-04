@@ -1,0 +1,8 @@
+<h1>Products</h1>
+<div *ngFor="let product of products">
+<abbr [title]="product.name"><h3><a>{{product.name}}</a></h3> </abbr>
+
+<p *ngIf="product.description" style="font-weight: bold;">Description : {{product.description}}</p> 
+<button (click)=share()>Share</button>
+</div>
+

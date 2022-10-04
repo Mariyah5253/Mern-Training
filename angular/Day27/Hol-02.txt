@@ -1,0 +1,93 @@
+Q1.
+[a]-[b]-[c]
+C:\Users\mariya.hussain\Desktop\Mern_Training\Angular\Day27>tsc example.ts
+
+C:\Users\mariya.hussain\Desktop\Mern_Training\Angular\Day27>node example
+mariya 123 true
+
+Q2.
+a)
+
+C:\Users\mariya.hussain\Desktop\Mern_Training\Angular\Day27>tsc example.ts
+
+C:\Users\mariya.hussain\Desktop\Mern_Training\Angular\Day27>node example
+mariya 123 true
+Function is Running
+GoodMoring  M.Hussain
+
+b)
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day27>node example
+
+CONVERTED STRING : WELCOME
+
+c)
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day27>tsc example.ts
+example.ts:28:17 - error TS2345: Argument of type 'string' is not assignable to parameter of type 'number'.
+
+28 console.log(add('5','7'));
+                   ~~~
+
+d)
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day27>node example
+
+12
+
+Q3
+a)
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day27>node example
+Invoking using All parameter
+Simple Interest is : 2160
+
+
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day27>node example
+Invoking using only p and t as parameter
+Simple Interest is : 1080
+
+b)
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day27>node example
+1 2 3 4 5
+1 3 5 7 9
+
+c)
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day27>node example
+0
+15
+63
+
+d)
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day27>node example
+Miss Suzy
+Welcome home.
+
+
+e)
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day27>tsc example.ts
+example.ts:85:17 - error TS2345: Argument of type 'boolean' is not assignable to parameter of type 'string | number'.
+
+85 printStatusCode(true);
+                   ~~~~
+
+
+Found 1 error in example.ts:85
+
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day27>node example
+Status Code is 404
+Status Code is 404
+
+
+Q4
+
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day27>node example
+This Function is Executed from anpother imported ts File
+Status Code is 404
+
+Q5
+
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day27>node example
+Slope Of the line will be 0.6666666666666666
+
+Q6
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day27>node example
+X coordinate = 10
+Y coordinate = 20
+Z coordinate = 30

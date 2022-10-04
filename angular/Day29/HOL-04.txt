@@ -1,0 +1,10 @@
+Q1
+project: Pipes
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day29\Pipes>ng serve
+
+Q2
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day29\Pipes>ng serve
+
+Q3
+
+C:\Users\mariya.hussain\Desktop\Mern_Training\angular\Day29\Pipes>ng serve
