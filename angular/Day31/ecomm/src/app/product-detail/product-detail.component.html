@@ -1,0 +1,22 @@
+<!--<h1>Product Id</h1>
+<p>{{product.id}}</p>
+
+
+<h1>Name</h1>
+<p>{{product.name}}</p>
+
+<h1>Description</h1>
+<p>{{}}</p>
+
+
+<h1>Price</h1>
+<p>{{}}</p>
+
+-->
+<h2>Product Details</h2>
+
+<div *ngIf="product">
+  <h3>{{ product.name }}</h3>
+  <h4>{{ product.price | currency }}</h4>
+  <p>{{ product.description }}</p>
+</div>

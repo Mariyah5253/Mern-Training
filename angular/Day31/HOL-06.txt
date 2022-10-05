@@ -1,0 +1,21 @@
+Q1. 
+
+project : RoutingDemo
+
+Q2
+
+project ecomm
+>>ng g c Product_Details
+
+Q3
+
+project ecomm
+
+Q4
+
+project ecomm
+
+Q5
+Project ecomm
+
+
