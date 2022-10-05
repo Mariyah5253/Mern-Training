@@ -1,0 +1,14 @@
+
+/* You can add global styles to this file, and also import other style files */
+body{
+background-color: rgb(100, 32, 145);
+
+}
+.form
+{
+    margin: auto;
+    background-color: salmon;
+    padding: 4px;
+    width:50%;    
+
+}

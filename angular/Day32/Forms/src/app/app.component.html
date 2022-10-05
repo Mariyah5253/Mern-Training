@@ -1,0 +1,12 @@
+<form class="form" #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" >
+  <input type="text" class="input" placeholder="First Name"  name='firstName' ngModel />
+  <input type="text" class="input" placeholder="Last Name"  name='lastName' ngModel/>
+  <input type="email" class="input" placeholder="Email "  name='email' ngModel/>
+
+
+  <textarea class="input comments" placeholder="Comments"  name='comments' ngModel></textarea>
+  <input type="checkbox" class="check" name="isFriendly"  checked=true class='check' ngModel/>
+  <label htmlFor="isFriendly">Are You Friendly?</label>
+ <br>
+  <input type="submit" value="Submitt" id='btn' />
+</form>

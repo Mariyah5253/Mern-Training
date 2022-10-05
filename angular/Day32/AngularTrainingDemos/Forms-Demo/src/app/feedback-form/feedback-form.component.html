@@ -1,0 +1,20 @@
+<h2>Form Validation</h2>
+<form [formGroup]="feedbackForm" (ngSubmit)="handleSubmit()">
+    Training Name:
+    <input type="text" formControlName="trgName">
+
+    <div *ngIf="feedbackForm.get('trgName').touched  && 
+                feedbackForm.get('trgName').invalid">
+        Training name is required.
+    </div>
+    
+    <br />
+    Feedbak:
+    <input type="text" formControlName="feedback">
+    <div *ngIf="feedbackForm.get('feedback').touched  &&
+                feedbackForm.get('feedback').invalid">
+        Feedback required with at least FOUR characters.
+    </div>
+    <br />
+    <button type="submit">Submit</button>
+</form>

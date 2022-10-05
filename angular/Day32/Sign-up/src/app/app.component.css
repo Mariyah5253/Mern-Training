@@ -1,0 +1,64 @@
+
+body {
+    margin: 0;
+    padding: 20px;
+    
+  
+  
+}
+.form{
+    padding:60px;
+    border-radius:10px;
+    width:400px;
+    
+    background-color: white;
+}
+.input{
+    margin:5px;
+    border-radius: 5px;;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 30px;
+    font-size: 20px;
+    display : block;
+    border: 2px solid gray;
+   
+}
+.comments{
+   
+    height: 60px;
+ 
+}
+.check{
+    margin:5px;
+    border-radius: 5px;;
+    margin-bottom: 10px;
+    width: 30px;
+    height: 13px;
+    font-size: 20px;
+ 
+    border: 2px solid gray;
+    
+
+}
+
+.btn{
+    width:150px;
+    height:30px;
+    font-weight: bold;
+    background-color: rgb(155, 94, 196);
+
+}
+.thanks
+{
+    border:2px solid green;
+    color:green;
+    font-weight: bold;
+
+}
+.error
+{
+    border:2px solid red;
+    color:red;
+    font-weight: bold;
+}

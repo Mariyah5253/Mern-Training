@@ -1,0 +1,46 @@
+ <body>
+ <form class='form' [formGroup]="loginForm" (ngSubmit)="loginUser()">
+     
+          <input
+          type="email"
+          class="input"
+          placeholder="Email "
+          formControlName="email"
+          name='email'
+      />
+      <div class="error" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">This is required</div>
+
+       <input
+          type="password"
+          class="input"
+          placeholder="Password"
+          formControlName="password"
+          
+          name='Password'
+
+      />
+      <div class="error" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">Password is required and Minimum length is 8</div>
+      <input
+          type="password"
+          class="input"
+          placeholder="Confirm Password"
+          formControlName="cpassword"
+          name='cPassword'
+      />
+      <div class="error" *ngIf="loginForm.get('cpassword')?.touched && loginForm.get('cpassword')?.invalid">Password is required and Minimum length is 8</div>
+     
+     
+     <input
+  type="checkbox"
+  name="isNews"
+  formControlName="newletter"
+  class='check'
+
+  />
+   <label htmlFor="isNew">I want to join newsletter</label><br/>
+    <div class='thanks' *ngIf="myfunc()">Thanks for joinig The news Letter</div>
+      <br />
+ 
+  <button class="btn"  [disabled]="!loginForm.valid">Submitt</button>
+ </form>
+</body>
